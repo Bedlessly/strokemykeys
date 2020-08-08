@@ -1,6 +1,6 @@
 package io.github.zenyiar.strokemykeys;
 
-import io.github.zenyiar.strokemykeys.gui.StrokeMyKeysGui;
+import io.github.zenyiar.strokemykeys.gui.StrokeMyKeysGUI;
 import io.github.zenyiar.strokemykeys.modcore.ModCoreInstaller;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -18,16 +18,16 @@ import org.lwjgl.input.Keyboard;
  * Created by Zenyiar
  */
 @Mod(modid = Reference.MODID, version = Reference.VERSION)
-public class ZenyiarsStrokeMyKeys
+public class StrokeMyKeys
 {
-    public static ZenyiarsStrokeMyKeysConfig zenyiarsStrokeMyKeysConfig;
+    public static StrokeMyKeysConfig strokeMyKeysConfig;
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         ModCoreInstaller.initializeModCore(Minecraft.getMinecraft().mcDataDir);
 
-        zenyiarsStrokeMyKeysConfig = new ZenyiarsStrokeMyKeysConfig();
-        zenyiarsStrokeMyKeysConfig.preload();
+        strokeMyKeysConfig = new StrokeMyKeysConfig();
+        strokeMyKeysConfig.preload();
 
         MinecraftForge.EVENT_BUS.register(this);
         ClientCommandHandler.instance.registerCommand(new CommandStrokeMyKeys());
@@ -35,21 +35,23 @@ public class ZenyiarsStrokeMyKeys
 
     @SubscribeEvent
     public void onGuiOpen(GuiOpenEvent event) {
-        if (ZenyiarsStrokeMyKeysConfig.showStrokeMyKeysOverlay && Minecraft.getMinecraft().inGameHasFocus && !Minecraft.getMinecraft().gameSettings.showDebugInfo) {
+        if (strokeMyKeysConfig.showStrokeMyKeysOverlay && Minecraft.getMinecraft().inGameHasFocus && !Minecraft.getMinecraft().gameSettings.showDebugInfo) {
             StrokeMyKeysGui.window.draw();
         }
     }
 
     @SubscribeEvent
     public void onRenderTick(TickEvent.RenderTickEvent event) {
-        if (ZenyiarsStrokeMyKeysConfig.showStrokeMyKeysOverlay && Minecraft.getMinecraft().inGameHasFocus && !Minecraft.getMinecraft().gameSettings.showDebugInfo) {
+        if (strokeMyKeysConfig.showStrokeMyKeysOverlay && Minecraft.getMinecraft().inGameHasFocus && !Minecraft.getMinecraft().gameSettings.showDebugInfo) {
             StrokeMyKeysGui.window.draw();
         }
     }
 
     @SubscribeEvent
     public void onKeyPressed(InputEvent.KeyInputEvent event) {
-        StrokeMyKeysGui.handleKeyDown(Keyboard.getEventKey());
-        StrokeMyKeysGui.update();
+        if (strokeMyKeysConfig.showStrokeMyKeysOverlay && Minecraft.getMinecraft().inGameHasFocus && !Minecraft.getMinecraft().gameSettings.showDebugInfo) {
+            StrokeMyKeysGui.handleKeyDown(Keyboard.getEventKey());
+            StrokeMyKeysGui.update();
+        }
     }
 }
