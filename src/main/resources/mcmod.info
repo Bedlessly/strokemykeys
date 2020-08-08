@@ -1,13 +1,13 @@
 [
 {
-  "modid": "zenyiars_strokemykeys",
-  "name": "Zenyiar's Stroke My Keys",
-  "description": "A Opensource mod like Keystrokes for Minecraft 1.8.9.",
+  "modid": "strokemykeys",
+  "name": "Bedlessly's Stroke My Keys",
+  "description": "A Open-Source mod like Keystrokes for Minecraft 1.8.9.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Zenyiar"],
+  "authorList": ["Bedlessly"],
   "credits": "Sk1erLLC, for giving us the Modcore API to use.",
   "logoFile": "",
   "screenshots": [],
