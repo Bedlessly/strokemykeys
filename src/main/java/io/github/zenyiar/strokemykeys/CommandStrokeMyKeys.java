@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Zenyiar
+ * Created by Bedlessly
  */
 public class CommandStrokeMyKeys extends ModCoreCommand {
     @Override
