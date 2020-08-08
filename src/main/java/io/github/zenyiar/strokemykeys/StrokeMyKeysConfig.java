@@ -7,9 +7,9 @@ import club.sk1er.vigilance.data.PropertyType;
 import java.io.File;
 
 /**
- * Created by Zenyiar
+ * Created by Bedlessly
  */
-public class ZenyiarsStrokeMyKeysConfig extends Vigilant 
+public class StrokeMyKeysConfig extends Vigilant 
 {
     // General
     @Property(
@@ -22,7 +22,7 @@ public class ZenyiarsStrokeMyKeysConfig extends Vigilant
     public static boolean showStrokeMyKeysOverlay = true;
 
     // Initialize
-    public ZenyiarsStrokeMyKeysConfig() {
+    public StrokeMyKeysConfig() {
         super(new File("./config/" + Reference.MODID + ".toml"));
         initialize();
     }
