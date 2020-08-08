@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
 /**
- * Created by Zenyiar
+ * Created by Bedlessly
  */
 @Mod(modid = Reference.MODID, version = Reference.VERSION)
 public class StrokeMyKeys
