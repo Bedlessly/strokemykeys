@@ -12,6 +12,9 @@ import org.lwjgl.input.Keyboard;
 import java.awt.*;
 import java.util.Properties;
 
+/**
+ * Created by Bedlessly
+ */
 public class StrokeMyKeysGUI extends GuiScreen
 {
     public static Window window = new Window();
